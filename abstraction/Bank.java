@@ -6,7 +6,7 @@ public class Bank {
 		CheckingAccount checkingAccount = new CheckingAccount("87654321", "Ravi Sharma", 5563.00,10000.00);
 	     double balance = savingsAccount.withdraw(100);
 	     
-	     checkingAccount.withdraw(20000);
+	     checkingAccount.withdraw(2000);
 	     
 	    
 	}
