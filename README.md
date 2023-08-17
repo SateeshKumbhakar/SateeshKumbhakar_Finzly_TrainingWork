@@ -7,4 +7,5 @@
 3. Loop concept  question
 4. horse move problem or `Knight Tour Problem`.
 5. Method Resolution concept.
-6. **OOPS** based Some coding questions.  
+6. **OOPS** based Some coding questions.
+7. Abstraction based Question(BankAccount) .
