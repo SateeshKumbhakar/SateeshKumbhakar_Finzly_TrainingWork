@@ -4,8 +4,8 @@ import java.util.UUID;
 
 public class Employee {
 	 
-    private String id = generateUniqueId();
-	private String name;
+        private String id = generateUniqueId();
+        private String name;
 	
 	
 	public String getId() {
@@ -29,8 +29,7 @@ public class Employee {
 
 	//Method to Generate UniqueId
 	public static String generateUniqueId() {
-   // UUID uniqueId = UUID.randomUUID();
-		
+                 // UUID uniqueId = UUID.randomUUID();	
 		return UUID.randomUUID().toString();
 	}
 	
