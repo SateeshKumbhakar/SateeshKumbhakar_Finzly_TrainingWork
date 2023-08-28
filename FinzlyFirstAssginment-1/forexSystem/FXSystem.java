@@ -18,6 +18,7 @@ public class FXSystem {
 //		int can=0;
 	  	
 		do {
+			
 			flag=false;
 			System.out.println("-------------------------------------------------------------------------");
 			System.out.println("Book Trade  1");
@@ -35,12 +36,15 @@ public class FXSystem {
 				System.out.println("Enter Only Integer for choice ."+"\n");
 				flag = true;
 			}
-			//Enter only the correct input choice is entered.
+				
+
+			
 			if(!flag) {
 				
 			 switch(choice) {
 			 case 1:
 				 Trade trade = new Trade();
+				 
 				 if(trade.takeTraderInfo().equals("success"))
 					 list.add(trade);
 				 flag =true;
@@ -59,8 +63,9 @@ public class FXSystem {
 			default:
 				flag =true;
 				System.out.println("Please select only above Mentioned choices...\n");		 
+
 		 }
      	}	
-	}while(flag);				
+		}while(flag);				
 }
 }

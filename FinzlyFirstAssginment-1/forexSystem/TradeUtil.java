@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TradeUtil {
+	
 	// Take trader data
 	public static void takeTraderData(Scanner sc,Trade t) {
 		while(true) {
@@ -17,23 +18,25 @@ public class TradeUtil {
 	   	  t.setName(sc.nextLine());
 	
 		if( t.getName().trim().isEmpty()|| !TradeValidation.isString(t.getName())) {
+			System.out.println("Enter valid Customer Name ");
 			bool =true;
 			break;	 // exit from inner do-while loop
 		}
 		
 		System.out.println("Enter Currency Pair(USDINR) = ");
-                t.setCurrencyPair(sc.nextLine()); 
+        t.setCurrencyPair(sc.nextLine()); 
         
-                if( t.getCurrencyPair().trim().isEmpty() || !TradeValidation.isString(t.getCurrencyPair())|| !t.getCurrencyPair().equalsIgnoreCase("USDINR") ){
+        if( t.getCurrencyPair().trim().isEmpty() || !TradeValidation.isString(t.getCurrencyPair())|| !t.getCurrencyPair().equalsIgnoreCase("USDINR") ){
         	System.out.println("Please enter Only USDINR \n");
 			bool =true;
 			break; //exit from inner do-while loop
 		}
         
-               System.out.println("Enter Amount to transfer = ");              
-               String temp = sc.nextLine();
+        System.out.println("Enter Amount to transfer = ");
+                           
+         String temp = sc.nextLine();
          
-               if(TradeValidation.isValidNumber(temp)) {
+         if(TradeValidation.isValidNumber(temp)) {
         	double d = Double.parseDouble(temp);
         	t.setAmount(d);
         	
@@ -42,18 +45,19 @@ public class TradeUtil {
     			bool =true;
     			break;	// break loop after getting less valid number
     		}
-             }
-              else  {	
+          }
+          else  {	
         	System.out.println("Enter valid Amount \n");
 //			sc.nextLine();
 			bool = true;
 			break;
+	
         }			
-	}while(bool);
+		}while(bool);
 		
-	if(!bool)
-	   break;
-	}
+		if(!bool)
+		   break;
+		}
 	}
 
 	// Book and Cancel Function
@@ -61,16 +65,18 @@ public class TradeUtil {
 		boolean bool=false;
 		do {
 			System.out.println("Book/Cancel this trade?");
+			
 			String bookCancel =sc.nextLine(); 
 			
-			if(bookCancel.equalsIgnoreCase("Book")) {
+			if(bookCancel.trim().equalsIgnoreCase("Book")) {
 				System.out.println("Trade should be booked and confirmation to be displayed as below ");
 			    System.out.println("Trade for USDINR has been booked with rate " + trade.getRate() +" , The amount of Rs "+trade.getTotalAmt()  +" will  be transferred in 2 working days to "+ trade.getName()+"\n\n");
 			    
 			    bool =false; // for terminate do-while loop
 			}
 			else if(bookCancel.equalsIgnoreCase("Cancel")){
-				System.out.println("Trade is Canceled... \n");	
+				System.out.println("Trade is Canceled... \n");
+				
 				//inform caller
 				return false;
 			}
@@ -98,7 +104,8 @@ public class TradeUtil {
 		   if(ch.equalsIgnoreCase("y")) {
 			System.out.println("Bye - have a good day");
 			System.exit(0);
-		   }   
+		   }
+		   
 		   else if(ch.equalsIgnoreCase("n")) {
 			   System.out.println();
 			   break;  //Show supported Operations (i.e starter)
@@ -112,6 +119,7 @@ public class TradeUtil {
 	}
 	
 	// This function is used for 2rd operation
+	
 	public static void printTradeData( ArrayList<Trade> list) {
 		
 		if(list.size()== 0) {
@@ -128,6 +136,7 @@ public class TradeUtil {
 	}
 	
 	//Logic for Show Rate of Exchange
+	
 	public static void showRate(String isWantGetRate,Trade trade,Scanner sc) {
 		 boolean flag;
 		 do {
@@ -139,7 +148,7 @@ public class TradeUtil {
 		     }
 		     else if(isWantGetRate.equalsIgnoreCase("yes")) {
 					System.out.println("Rate is= "+ trade.getRate());
-					System.out.println("You are transfering INR "+trade.getTotalAmt()+ " to "+ trade.getName()+"\n");
+					System.out.println("You are transfering INR "+ trade.getTotalAmt()+ " to "+ trade.getName()+"\n");
 		    	    break; //loop terminating here
 		     }
 		     else { 	 

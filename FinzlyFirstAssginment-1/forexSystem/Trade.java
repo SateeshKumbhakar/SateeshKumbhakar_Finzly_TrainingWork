@@ -53,7 +53,10 @@ public class Trade {
 		
 		System.out.println("Do You Want to Get Rate(Yes/No) ");
  		//sc.nextLine();
+		totalAmt = getRate()*getAmount();
 		TradeUtil.showRate(sc.nextLine(),this,sc);
+		
+//		System.out.println(totalAmt);
 			
 		// Do book or cancel trade 
 		if(!TradeUtil.bookingOrCancel(sc,this)) {
