@@ -24,16 +24,16 @@ public class Starter {
 	     JdbcOperation.deleteData(st);
 	     //get all user
 	     
+	     //Use preparedStatement
 	     
-	     
-	     //insert User
-	     JdbcOperation.insertData(st);
-	     
+	     //insert Use
+	     JdbcOperation.insertDataUsingPreparedStatement(con);
+	    
 	     //update User
-	     JdbcOperation.updateData(st);
+	     JdbcOperation.updateDataUsingPreparedStatement(con);
 	     
 	     //Delete Data 
-	     JdbcOperation.deleteData(st);
+	     JdbcOperation.deleteDataUsingPreparedStatement(con);
 	     
 	    
 	     
